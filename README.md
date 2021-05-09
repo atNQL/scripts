@@ -1,0 +1,2 @@
+# scripts
+Make life ez
