@@ -1,0 +1,3 @@
+// Auto click like in facebook
+const likeButtons = $$('._6a-y._3l2t._18vj')          
+Array.from(likeButtons).forEach(btn => btn.getAttribute('aria-pressed') == 'false'? btn.click():null)
