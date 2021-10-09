@@ -1,0 +1,16 @@
+// On edit event, check the edit value 
+// and do copy values from sheet to other sheet
+function onEdit(e){
+  var c = e.range.getColumn();
+  var vl = e.value;
+  if(c == 10 && vl == "Done"){
+    var r = e.range.getRow(); 
+    var value = SpreadsheetApp.getActiveSheet().getRange(r,1,1,1).getValue();
+    let spreadSheet = SpreadsheetApp.getActiveSpreadsheet();
+    let source  = spreadSheet.getSheetByName('DangKi');
+    let destination  = spreadSheet.getSheetByName(value);
+
+    var range = source.getRange(r,2,1,8);
+    range.copyValuesToRange(destination,2,10,r,r)
+  }
+}
